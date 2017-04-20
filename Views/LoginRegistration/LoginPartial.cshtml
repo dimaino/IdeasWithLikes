@@ -1,0 +1,11 @@
+@model LoginAndRegisterFinal.Models.LoginViewModel
+
+<div class="login">
+    <h3 class="form-center-title">Login</h3>
+    <form asp-controller="LoginRegistration" asp-action="Login" asp-antiforgery="true" method="POST">
+        <h5 class="form-titles">Email: </h5><input class="form-control" asp-for="Email">
+        <h5 class="form-titles">Password: </h5><input class="form-control" asp-for="Password">
+        <br>
+        <input class="btn btn-success login-btn btn-block btn-colored" type="submit" value="Login"><br>
+    </form>
+</div>        

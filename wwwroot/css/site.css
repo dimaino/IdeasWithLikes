@@ -1,0 +1,147 @@
+.topbar {
+    text-align: center;
+}
+
+.title-text {
+    display: inline-block;
+    margin-right: 50px;
+}
+
+.logout-btn {
+    margin-bottom: 12px;
+    text-align: right;
+}
+
+.add-container {
+    width: 400px;
+    display: block;
+    margin: 0 auto;
+}
+
+.add-wedding {
+    display: inline-block;
+}
+
+.wedding-title {
+    text-align: center;
+}
+
+.wedding-left {
+    width: 350px;
+    display: inline-block;
+    padding-left: 40px;
+    padding-right: 50px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.maps {
+    width: 500px;
+    display: inline-block;
+    text-align: right;
+    vertical-align: top;
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+
+.wedding-container {
+    width: 900px;
+    display: block;
+    margin: 0 auto;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 10px;
+  width: 98%;
+  border-radius: 5px;
+}
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.login-container {
+    widows: 250px;
+    display: block;
+    margin: 0 auto;
+}
+
+.title {
+    text-align: center;
+}
+
+.form-containers {
+    display: block;
+    margin: 0 auto;
+    width: 550px;
+}
+
+.login {
+    display: inline-block;
+    widows: 150px;
+    vertical-align: top;
+    padding: 10px;
+    padding-right: 90px;
+}
+
+.register {
+    display: inline-block;
+    widows: 150px;
+    padding: 10px;
+}
+
+.form-center {
+    text-align: center;
+    width: 18%;
+    margin-left: 81%;
+}
+
+input.btn.btn-success.login-btn.btn-block.btn-colored {
+    background-color: black;
+}
+
+input.btn.btn-success.login-btn.btn-block.btn-colored:hover {
+    background-color:black;
+}
+
+input.btn.btn-success.login-btn.btn-block.btn-colored:active {
+    background-color: black;
+}
+
+button.btn.btn-success.btn-s.btn-block.btn-colored {
+    background-color: black;
+}
+button.btn.btn-success.btn-s.btn-block.btn-colored:hover {
+    background-color: black;
+}
+button.btn.btn-success.btn-s.btn-block.btn-colored:active {
+    background-color: black;
+}
+
+button.btn.btn-primary.btn-s {
+    background-color: blue;
+}
+button.btn.btn-primary.btn-s:active {
+    background-color: blue;
+}
+button.btn.btn-primary.btn-s:hover {
+    background-color: blue;
+}
+
+button.btn.btn-warning.btn-s {
+    background-color: red;
+}
+button.btn.btn-warning.btn-s:active {
+    background-color: red;
+}
+button.btn.btn-warning.btn-s:hover {
+    background-color: red;
+}
+.form-center-title{
+    text-align: center;
+}

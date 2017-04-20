@@ -1,0 +1,10 @@
+@{
+    ViewData["Title"] = "Login and Registration Page";
+}
+<div class="dashboard-container">
+    <div class="topbar">
+        <h1 class="title-text">Welcome to the Thing, @ViewBag.CurrentUser.First_Name @ViewBag.CurrentUser.Last_Name</h1>
+        <a asp-controller="New" asp-action="Logout"><button class="btn btn-default btn-xs logout-btn">Logout</button></a>
+    </div>
+    <hr>
+</div>
