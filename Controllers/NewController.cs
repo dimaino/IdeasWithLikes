@@ -22,11 +22,28 @@ namespace LoginAndRegisterFinal.Controllers
             if(HttpContext.Session.GetInt32("CurrUserId") != null)
             {
                 User CurrentUser = _context.User.SingleOrDefault(person => person.id == (int)HttpContext.Session.GetInt32("CurrUserId"));
-                ViewBag.CurrentUser = CurrentUser;               
+                ViewBag.CurrentUser = CurrentUser;  
+                ViewBag.allMessages = _context.Message.ToList();             
                 return View("Index");
             }
             TempData["error_list"] = new List<string>() {"You need to login to get to this Page."};
             return RedirectToAction("Index", "LoginRegistration");
+        }
+
+        [HttpPost]
+        [Route("addNew")]
+        public IActionResult AddNew(string Content)
+        {
+            if(Content != null)
+            {
+                Message newMessage = new Message
+                {
+                    Content = Content
+                };
+                _context.Add(newMessage);
+                _context.SaveChanges();
+            }
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
