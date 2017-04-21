@@ -1,16 +1,17 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using LoginAndRegisterFinal.Models;
+using BlackBeltTest2.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
-namespace LoginAndRegisterFinal.Controllers
+namespace BlackBeltTest2.Controllers
 {
-    public class NewController : Controller
+    public class BlackBeltController : Controller
     {
         private static MasterContext _context;
     
-        public NewController(MasterContext context)
+        public BlackBeltController(MasterContext context)
         {
             _context = context;
         }
@@ -21,29 +22,31 @@ namespace LoginAndRegisterFinal.Controllers
         {
             if(HttpContext.Session.GetInt32("CurrUserId") != null)
             {
-                User CurrentUser = _context.User.SingleOrDefault(person => person.id == (int)HttpContext.Session.GetInt32("CurrUserId"));
-                ViewBag.CurrentUser = CurrentUser;  
-                ViewBag.allMessages = _context.Message.ToList();             
+                ViewBag.CurrentUser = _context.User.SingleOrDefault(person => person.id == (int)HttpContext.Session.GetInt32("CurrUserId"));
                 return View("Index");
             }
             TempData["error_list"] = new List<string>() {"You need to login to get to this Page."};
             return RedirectToAction("Index", "LoginRegistration");
         }
-
-        [HttpPost]
-        [Route("addNew")]
-        public IActionResult AddNew(string Content)
+        
+        [HttpGet]
+        [Route("addThing")]
+        public IActionResult AddThing()
         {
-            if(Content != null)
+            if(TempData["Time"] != null)
             {
-                Message newMessage = new Message
-                {
-                    Content = Content
-                };
-                _context.Add(newMessage);
-                _context.SaveChanges();
+                ViewBag.Time = TempData["Time"];
             }
-            return RedirectToAction("Index");
+            return View("Thing");
+        }
+
+        // REGEX (([0-1][0-9])|([2][0-3])):([0-5][0-9])
+        [HttpPost]
+        [Route("checkTime")]
+        public IActionResult CheckTime(TimeSpan timeEntered)
+        {
+            TempData["Time"] = timeEntered;
+            return RedirectToAction("AddThing");
         }
 
         [HttpGet]

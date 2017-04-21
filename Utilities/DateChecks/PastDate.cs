@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace LoginAndRegisterFinal
+namespace BlackBeltTest2
 {
     public class PastDate : ValidationAttribute
     {

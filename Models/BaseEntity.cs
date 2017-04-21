@@ -1,6 +1,6 @@
 using System;
 
-namespace LoginAndRegisterFinal.Models
+namespace BlackBeltTest2.Models
 {
     public abstract class BaseEntity
     {

@@ -1,7 +1,7 @@
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
 
-namespace LoginAndRegisterFinal
+namespace BlackBeltTest2
 {
     public class Program
     {

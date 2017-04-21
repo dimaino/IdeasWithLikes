@@ -4,9 +4,9 @@ using System.Linq;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using LoginAndRegisterFinal.Models;
+using BlackBeltTest2.Models;
 
-namespace LoginAndRegisterFinal.Controllers
+namespace BlackBeltTest2.Controllers
 {
     public class LoginRegistrationController : Controller
     {
@@ -21,7 +21,10 @@ namespace LoginAndRegisterFinal.Controllers
         [Route("")]
         public IActionResult Index()
         {
-            ViewBag.Errors = TempData["error_list"];
+            if(TempData["error_list"] != null)
+            {
+                ViewBag.Errors = TempData["error_list"];
+            }
             HttpContext.Session.Clear();
             return View("Index");
         }
@@ -45,7 +48,7 @@ namespace LoginAndRegisterFinal.Controllers
 
                     User currentUser = _context.User.SingleOrDefault(user => user.Email == model.Email);
                     HttpContext.Session.SetInt32("CurrUserId", (int)currentUser.id);
-                    return RedirectToAction("Index", "New");
+                    return RedirectToAction("Index", "BlackBelt");
                 }
                 else
                 {
@@ -80,7 +83,7 @@ namespace LoginAndRegisterFinal.Controllers
                     if(0 != Hasher.VerifyHashedPassword(currentUser, currentUser.Password, model.Password))
                     {
                         HttpContext.Session.SetInt32("CurrUserId", (int)currentUser.id);
-                        return RedirectToAction("Index", "New");
+                        return RedirectToAction("Index", "BlackBelt");
                     }
                     passwordCheck = true;
                 }

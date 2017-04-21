@@ -1,0 +1,31 @@
+@{
+    ViewData["Title"] = "Login and Registration Page";
+}
+<div class="dashboard-container">
+    <div class="topbar">
+        <h1 class="title-text">Welcome to the Thing, @ViewBag.CurrentUser.First_Name @ViewBag.CurrentUser.Last_Name</h1>
+        <a asp-controller="BlackBelt" asp-action="Logout"><button class="btn btn-default btn-xs logout-btn">Logout</button></a>
+    </div>
+    <hr>
+    <h3 class="form-center-title">Some Table</h3>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Thing1</th>
+            <th>Thing2</th>
+        </tr>
+        @*
+        @{
+            foreach(var i in @Viewbag.Thing)
+            {
+                <tr>
+                    <td>@i.id</td>
+                    <td>@i</td>
+                    <td>@i.thing</td>
+                </tr>
+            }
+        }
+        *@
+    </table>
+    <a href="/addThing" id="toTheRight"><button class="btn btn-default btn-xs logout-btn">Add New Thing</button></a>
+</div>

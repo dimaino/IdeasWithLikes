@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using LoginAndRegisterFinal.Models;
+using BlackBeltTest2.Models;
 
-namespace LoginAndRegisterFinal.Migrations
+namespace BlackBeltTest2.Migrations
 {
     [DbContext(typeof(MasterContext))]
     partial class MasterContextModelSnapshot : ModelSnapshot
@@ -15,23 +15,7 @@ namespace LoginAndRegisterFinal.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.0-rtm-22752");
 
-            modelBuilder.Entity("LoginAndRegisterFinal.Models.Message", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Content");
-
-                    b.Property<DateTime>("created_at");
-
-                    b.Property<DateTime>("updated_at");
-
-                    b.HasKey("id");
-
-                    b.ToTable("Message");
-                });
-
-            modelBuilder.Entity("LoginAndRegisterFinal.Models.User", b =>
+            modelBuilder.Entity("BlackBeltTest2.Models.User", b =>
                 {
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd();

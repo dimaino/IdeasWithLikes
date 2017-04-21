@@ -145,3 +145,7 @@ button.btn.btn-warning.btn-s:hover {
 .form-center-title{
     text-align: center;
 }
+
+#toTheRight{
+    margin-left: 1%;
+}

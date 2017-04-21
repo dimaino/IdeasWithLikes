@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace LoginAndRegisterFinal.Models
+namespace BlackBeltTest2.Models
 {
     public class User : BaseEntity
     {
