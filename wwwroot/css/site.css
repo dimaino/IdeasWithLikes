@@ -149,3 +149,6 @@ button.btn.btn-warning.btn-s:hover {
 #toTheRight{
     margin-left: 1%;
 }
+.contentWrapper{
+    border: 3px solid black;
+}

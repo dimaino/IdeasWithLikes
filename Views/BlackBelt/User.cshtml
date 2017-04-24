@@ -1,0 +1,17 @@
+@{
+    ViewData["Title"] = "User Profile";
+}
+<div class="dashboard-container">
+    <div class="topbar">
+        <a asp-controller="BlackBelt" asp-action="GoBack"><button class="btn btn-default btn-xs logout-btn">Bright Ideas</button></a>
+        <a asp-controller="BlackBelt" asp-action="Logout"><button class="btn btn-default btn-xs logout-btn">Logout</button></a>
+    </div>
+    <hr>
+    <p>Name: @ViewBag.ClickedUser.Name</p>
+    <p>Alias: @ViewBag.ClickedUser.Alias</p>
+    <p>Email: @ViewBag.ClickedUser.Email</p>
+    <hr>
+    <br>
+    <p>Total Number of Posts: @ViewBag.ClickedUser.Ideas.Count</p>
+    <p>Total Number of Likes: @ViewBag.ClickedUser.UserLikes.Count</p>
+</div>

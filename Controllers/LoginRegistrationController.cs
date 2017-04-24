@@ -47,7 +47,7 @@ namespace BlackBeltTest2.Controllers
                     _context.SaveChanges();
 
                     User currentUser = _context.User.SingleOrDefault(user => user.Email == model.Email);
-                    HttpContext.Session.SetInt32("CurrUserId", (int)currentUser.id);
+                    HttpContext.Session.SetInt32("CurrUserId", (int)currentUser.UserId);
                     return RedirectToAction("Index", "BlackBelt");
                 }
                 else
@@ -82,7 +82,7 @@ namespace BlackBeltTest2.Controllers
                     PasswordHasher<User> Hasher = new PasswordHasher<User>();
                     if(0 != Hasher.VerifyHashedPassword(currentUser, currentUser.Password, model.Password))
                     {
-                        HttpContext.Session.SetInt32("CurrUserId", (int)currentUser.id);
+                        HttpContext.Session.SetInt32("CurrUserId", (int)currentUser.UserId);
                         return RedirectToAction("Index", "BlackBelt");
                     }
                     passwordCheck = true;

@@ -3,29 +3,48 @@
 }
 <div class="dashboard-container">
     <div class="topbar">
-        <h1 class="title-text">Welcome to the Thing, @ViewBag.CurrentUser.First_Name @ViewBag.CurrentUser.Last_Name</h1>
+        <h1 class="title-text">Hi, @ViewBag.CurrentUser.Alias</h1>
         <a asp-controller="BlackBelt" asp-action="Logout"><button class="btn btn-default btn-xs logout-btn">Logout</button></a>
     </div>
     <hr>
-    <h3 class="form-center-title">Some Table</h3>
-    <table>
-        <tr>
-            <th>Id</th>
-            <th>Thing1</th>
-            <th>Thing2</th>
-        </tr>
-        @*
-        @{
-            foreach(var i in @Viewbag.Thing)
+    <br>
+    <form action="/addIdea" method="POST">
+        <input type="text" name="Content">
+        <button class="btn btn-default btn-xs logout-btn">Idea!</button>
+    </form>
+    <br>
+    <br>
+    @{
+        foreach(var idea in ViewBag.AllIdeas)
+        {
+            <br>
+            <hr>
+            <p><a href="/users/@idea.User.UserId">@idea.User.Alias Says: </a></p>
+            <div class="contentWrapper">
+            <p>@idea.Content</p>
+            </div>
+            <br>
+            if(idea.UserId == ViewBag.CurrentUser.UserId)
             {
-                <tr>
-                    <td>@i.id</td>
-                    <td>@i</td>
-                    <td>@i.thing</td>
-                </tr>
+                <form action="/deleteLike/@idea.IdeaId" method="POST">
+                    <input type="submit" value="Delete Idea">
+                </form>
+                <br>
+                <form action="/addLike/@idea.IdeaId" method="POST">
+                        <input type="submit" value="Like">
+                </form>
+                <p><a href="/bright_ideas/@idea.IdeaId">@idea.IdeasLikes.Count people</a> like this.</p>        
+            }
+            else
+            {
+                <form action="/addLike/@idea.IdeaId" method="POST">
+                        <input type="submit" value="Like">
+                </form>
+                <p><a href="/bright_ideas/@idea.IdeaId">@idea.IdeasLikes.Count people</a> like this.</p>
+                
+                
             }
         }
-        *@
-    </table>
-    <a href="/addThing" id="toTheRight"><button class="btn btn-default btn-xs logout-btn">Add New Thing</button></a>
+    }
+    <!-- Loop through ideas based off likes -->
 </div>

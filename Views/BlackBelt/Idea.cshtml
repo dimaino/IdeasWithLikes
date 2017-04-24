@@ -1,0 +1,36 @@
+@{
+    ViewData["Title"] = "User Profile";
+}
+<div class="dashboard-container">
+    <div class="topbar">
+        <a asp-controller="BlackBelt" asp-action="GoBack"><button class="btn btn-default btn-xs logout-btn">Bright Ideas</button></a>
+        <a asp-controller="BlackBelt" asp-action="Logout"><button class="btn btn-default btn-xs logout-btn">Logout</button></a>
+    </div>
+    <hr>
+    <p><a href="/users/@ViewBag.idea.User.UserId">@ViewBag.idea.User.Alias</a> says: </p>
+    <div class="contentWrapper">
+        <p>@ViewBag.idea.Content</p>
+    </div>
+    <br>
+    <br>
+    <br>
+    <h4>People who like this post:</h4>
+    <table>
+        <tr>
+            <th>Alias</th>
+            <th>Name</th>
+        </tr>
+        @{
+            foreach(var user in ViewBag.ClickedIdea)
+            {
+                foreach(var thing in user.IdeasLikes)
+                {
+                    <tr>
+                    <td><a href="/users/@thing.User.UserId">@thing.User.Alias</a></td>
+                    <td>@thing.User.Name</td>
+                </tr>
+                }
+            }
+        }
+    </table>
+</div>

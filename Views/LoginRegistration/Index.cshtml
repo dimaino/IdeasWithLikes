@@ -3,7 +3,7 @@
 }
 @model BlackBeltTest2.Models.RegistrationViewModel
 <div class="login-container">
-    <h1 class="title">New App!</h1>
+    <h1 class="title">Welcome!</h1>
     <hr>
     <div class="errors">
         @{
@@ -19,10 +19,10 @@
     <div class="form-containers">
         @Html.Partial("LoginPartial")
         <div class="register">
-            <h3 class="form-center-title">Register YAY</h3>
+            <h3 class="form-center-title">Register</h3>
             <form asp-controller="LoginRegistration" asp-action="Register" asp-antiforgery="true" method="POST">
-                <h5 class="form-titles">First Name: </h5><input class="form-control" asp-for="First_Name">
-                <h5 class="form-titles">Last Name: </h5><input class="form-control" asp-for="Last_Name">
+                <h5 class="form-titles">Name: </h5><input class="form-control" asp-for="Name">
+                <h5 class="form-titles">Alias: </h5><input class="form-control" asp-for="Alias">
                 <h5 class="form-titles">Email: </h5><input class="form-control" asp-for="Email">
                 <h5 class="form-titles">Password: </h5><input class="form-control" asp-for="Password">
                 <h5 class="form-titles">Confirm Password: </h5><input class="form-control" asp-for="Password_Confirmation">

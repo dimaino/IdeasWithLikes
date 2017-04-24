@@ -6,15 +6,17 @@ namespace BlackBeltTest2.Models
 {
     public class User : BaseEntity
     {
-        [Key]
-        public int id {get; set;}
-        public string First_Name {get; set;}
-        public string Last_Name {get; set;}
+        public int UserId {get; set;}
+        public string Name {get; set;}
+        public string Alias {get;set;}
         public string Email {get; set;}
         public string Password {get; set;}
+        public List<Like> UserLikes {get;set;}
+        public List<Idea> Ideas {get;set;} 
         public User()
         {
-            
+            UserLikes = new List<Like>();
+            Ideas = new List<Idea>();
         }        
     }
 }
